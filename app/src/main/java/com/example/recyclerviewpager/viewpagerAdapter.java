@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class viewpagerAdapter extends RecyclerView.Adapter<viewHolder> {
-    List <String> dataList = new ArrayList<>();
+    List <itemDataModel> dataList = new ArrayList<>();
     Context ctxt;
 
-    public viewpagerAdapter(List<String> dataList, Context ctx) {
+    public viewpagerAdapter(List<itemDataModel> dataList, Context ctx) {
         this.dataList = dataList;
         ctxt=ctx;
     }
@@ -28,13 +28,15 @@ public class viewpagerAdapter extends RecyclerView.Adapter<viewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        holder.textView.setText(dataList.get(position));
+        holder.textView.setText(dataList.get(position).dataText);
     }
 
     @Override
     public int getItemCount() {
         return dataList.size();
     }
+
+
 }
 
 class viewHolder extends RecyclerView.ViewHolder{
